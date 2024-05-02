@@ -5,12 +5,13 @@ import Input from "./Components/Input";
 
 function App() {
   const socket = io("http://localhost:3000");
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
+ 
 
   useEffect(() => {
     function connectSocket() {
       socket.on("connect", () => {
-        console.log("connected to server - ", socket);
+        console.log("connected to server from client- ", socket);
        
       });
     }
@@ -18,7 +19,7 @@ function App() {
   }, [socket]);
 
 
-  const handleInput = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
    const form = e.target;
    const name  = form.name.value;
@@ -28,22 +29,25 @@ function App() {
    }
 
    setData(data);
-
+   socket.emit("data", data);
   };
-
 
 
   return (
     <>
       <h1>React Multiplayer dashboard</h1>
       {console.log(data)}
-      <form onSubmit={handleInput}>
+      <form onSubmit={onSubmit}>
         <Input placeholder={"Enter your name"} name="name" />
         <br />
         <br />
         <Input placeholder={"Enter your Score"} name="score" />
         <br /> <br />
-        <input type="submit" value="Submit" />
+        <input
+          type="submit"
+          value="Submit"
+          className={`button `}
+        />
       </form>
     </>
   );

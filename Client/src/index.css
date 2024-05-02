@@ -67,3 +67,25 @@ button:focus-visible {
   }
 }
 
+.button{
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  border: 0;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 7px;
+  box-shadow: 3px 3px 3px black;
+  cursor: grab;
+}
+.button:active{
+   background-color: #1a1a1a;
+  color: whitesmoke;
+  border: 0;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 7px;
+  box-shadow: 2px 2px 2px black;
+  cursor: grabbing;
+}
+
+

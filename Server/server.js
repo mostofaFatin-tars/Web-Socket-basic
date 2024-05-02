@@ -3,7 +3,7 @@ const { Server } = require("socket.io");
 const httpServer = createServer();
 
 
-const socket = new Server(httpServer, {
+const io = new Server(httpServer, {
   cors: {
     origin: "http://localhost:5173",
     methods: ["GET", "POST", "DELETE", "PUT"], // Allow only specific methods
@@ -11,8 +11,11 @@ const socket = new Server(httpServer, {
   },
 });
 
-socket.on("connection", (socket) => {
-  console.log("Connected", socket);
+io.on("connection", (socket) => {
+ 
+  socket.on("data", (data)=>{
+    console.log("Data from backend", data);
+  })
 });
 
 httpServer.listen(3000, () => {
