@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+.input-field{
+  height: 2.2rem;
+  width: 18rem;
+  padding: 0 8px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+.input-field:focus{
+  outline: none;
+  background-color: rgb(24, 26, 26);
+}
