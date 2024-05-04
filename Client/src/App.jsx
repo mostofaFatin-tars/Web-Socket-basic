@@ -37,6 +37,8 @@ function App() {
     socket.on("allData", (allData) =>{
       console.log(allData);
     });
+
+    form.reset();
   };
 
   return (
