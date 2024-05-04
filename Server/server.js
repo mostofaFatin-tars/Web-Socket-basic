@@ -14,12 +14,13 @@ const io = new Server(httpServer, {
 
 
 let allData = [] 
-io.on("connection", (socket) => {
+io.on("connect", (socket) => {
  
   socket.on("data", (data)=>{
     allData.push({...data, id:socket.id})
 
-    console.log("Total amount",allData)
+    console.log("Total amount",allData);
+    io.emit("notification", allData.length);
   })
 });
 
