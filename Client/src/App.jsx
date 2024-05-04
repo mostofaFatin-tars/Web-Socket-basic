@@ -34,6 +34,9 @@ function App() {
 
     setData(data);
     socket.emit("data", data);
+    socket.on("allData", (allData) =>{
+      console.log(allData);
+    });
   };
 
   return (

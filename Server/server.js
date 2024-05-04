@@ -21,6 +21,7 @@ io.on("connect", (socket) => {
 
     console.log("Total amount",allData);
     io.emit("notification", allData.length);
+    socket.emit("allData", allData)
   })
 });
 
