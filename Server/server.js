@@ -4,17 +4,22 @@ const httpServer = createServer();
 
 
 const io = new Server(httpServer, {
+  pingTimeout:60000,
   cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "DELETE", "PUT"], // Allow only specific methods
-    allowedHeaders: ["Authorization"], // Allow only specific headers
+    origin: "http://localhost:5174",
+    methods: ["GET", "POST", "DELETE", "PUT"], 
+    allowedHeaders: ["Authorization"], 
   },
 });
 
+
+let allData = [] 
 io.on("connection", (socket) => {
  
   socket.on("data", (data)=>{
-    console.log("Data from backend", data);
+    allData.push({...data, id:socket.id})
+
+    console.log("Total amount",allData)
   })
 });
 

@@ -35,19 +35,20 @@ function App() {
 
   return (
     <>
+        <img src="https://i.ibb.co/8NhzNLk/bell.png" alt="" />
+        <p>(0)</p>
       <h1>React Multiplayer dashboard</h1>
       {console.log(data)}
+
+      <div>
+      </div>
       <form onSubmit={onSubmit}>
         <Input placeholder={"Enter your name"} name="name" />
         <br />
         <br />
         <Input placeholder={"Enter your Score"} name="score" />
         <br /> <br />
-        <input
-          type="submit"
-          value="Submit"
-          className={`button `}
-        />
+        <input type="submit" value="Submit" className={`button `} />
       </form>
     </>
   );
